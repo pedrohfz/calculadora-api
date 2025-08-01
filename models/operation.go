@@ -8,5 +8,5 @@ type OperationRequest struct {
 type OperationResponse struct {
 	Resultado float64 `json:"resultado,omitempty"`
 	Mensagem  string  `json:"mensagem,omitempty"`
-	Erro      bool    `json:"erro"`
+	Erro      bool    `json:"erro,omitempty"`
 }
