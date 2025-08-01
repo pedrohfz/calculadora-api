@@ -3,6 +3,7 @@ package controllers
 import (
 	"calculadora-api/models"
 	"fmt"
+	"math"
 )
 
 var (
@@ -17,28 +18,28 @@ func CalcularOperacao(num1, num2 float64, operador string) (models.OperationResp
 	switch operador {
 	case "+":
 		resultado = num1 + num2
-		mensagem = fmt.Sprintf("A soma de %2.f e %2.f é %2.f", num1, num2, resultado)
+		mensagem = fmt.Sprintf("A soma de %.2f e %.2f é %.2f", num1, num2, resultado)
 	case "-":
 		resultado = num1 - num2
-		mensagem = fmt.Sprintf("A subtração de %2.f e %2.f é %2.f", num1, num2, resultado)
+		mensagem = fmt.Sprintf("A subtração de %.2f e %.2f é %.2f", num1, num2, resultado)
 	case "*":
 		resultado = num1 * num2
-		mensagem = fmt.Sprintf("A multiplicação de %2.f e %2.f é %2.f", num1, num2, resultado)
+		mensagem = fmt.Sprintf("A multiplicação de %.2f e %.2f é %.2f", num1, num2, resultado)
 	case "/":
 		if num2 == 0 {
 			mensagem = "Não é possível dividir um número por zero."
 			erro = true
 		} else {
 			resultado = num1 / num2
-			mensagem = fmt.Sprintf("A divisão de %2.f e %2.f é %2.f", num1, num2, resultado)
+			mensagem = fmt.Sprintf("A divisão de %.2f e %.2f é %.2f", num1, num2, resultado)
 		}
 	case "%":
 		if num2 == 0 {
 			mensagem = "Não é possível calcular o módulo com divisor zero."
 			erro = true
 		} else {
-			resultado = float64(int(num1) % int(num2))
-			mensagem = fmt.Sprintf("O módulo de %2.f e %2.f é %2.f", num1, num2, resultado)
+			resultado = math.Mod(num1, num2)
+			mensagem = fmt.Sprintf("O módulo de %.2f e %.2f é %.2f", num1, num2, resultado)
 		}
 	default:
 		mensagem = "Operação desconhecida."
