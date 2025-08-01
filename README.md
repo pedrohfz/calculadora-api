@@ -1,6 +1,9 @@
 # 🧮 Calculadora API em Go
 
-    Esta é uma API RESTful desenvolvida em Golang com o framework Gin, que permite realizar operações matemáticas básicas por meio de requisições HTTP. A API está estruturada de forma modular, com separação clara entre rotas, handlers, controllers e modelos.
+    Esta é uma API RESTful desenvolvida em Golang com o framework Gin, que permite realizar operações
+    matemáticas básicas por meio de requisições HTTP. 
+    A API está estruturada de forma modular, com separação clara entre rotas, handlers,
+    controllers e modelos.
 
 ## 🚀 Funcionalidades
 
