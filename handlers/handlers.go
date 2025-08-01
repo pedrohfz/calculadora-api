@@ -8,23 +8,23 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Adicao lida com a rota POST /adicao
-func Adicao(c *gin.Context) {
+// Somar lida com a rota POST /adicao
+func Somar(c *gin.Context) {
 	HandleOperation(c, "+")
 }
 
-// Subtracao lida com a rota POST /subtracao
-func Subtracao(c *gin.Context) {
+// Subtrair lida com a rota POST /subtracao
+func Subtrair(c *gin.Context) {
 	HandleOperation(c, "-")
 }
 
-// Multiplicacao lida com a rota POST /multiplicacao
-func Multiplicacao(c *gin.Context) {
+// Multiplicar lida com a rota POST /multiplicacao
+func Multiplicar(c *gin.Context) {
 	HandleOperation(c, "*")
 }
 
-// Divisao lida com a rota POST /divisao
-func Divisao(c *gin.Context) {
+// Dividir lida com a rota POST /divisao
+func Dividir(c *gin.Context) {
 	HandleOperation(c, "/")
 }
 
