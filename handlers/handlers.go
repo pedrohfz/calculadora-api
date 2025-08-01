@@ -8,26 +8,33 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Adicao lida com a rota POST /adicao
 func Adicao(c *gin.Context) {
 	HandleOperation(c, "+")
 }
 
+// Subtracao lida com a rota POST /subtracao
 func Subtracao(c *gin.Context) {
 	HandleOperation(c, "-")
 }
 
+// Multiplicacao lida com a rota POST /multiplicacao
 func Multiplicacao(c *gin.Context) {
 	HandleOperation(c, "*")
 }
 
+// Divisao lida com a rota POST /divisao
 func Divisao(c *gin.Context) {
 	HandleOperation(c, "/")
 }
 
+// Modulo lida com a rota POST /modulo
 func Modulo(c *gin.Context) {
 	HandleOperation(c, "%")
 }
 
+// HandleOperation centraliza o tratamento da requisição e resposta HTTP.
+// Faz o bind dos dados, chama o controller e retorna no JSON apropriado.
 func HandleOperation(c *gin.Context, operador string) {
 	var req models.OperationRequest
 
