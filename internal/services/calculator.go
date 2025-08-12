@@ -15,6 +15,9 @@ var (
 // CalcularOperacao executa a lógica da operação matemática com base no operador fornecido.
 // Retorna uma OperationResponse contendo o resultado ou mensagem de erro, além de um bool indicando falha ou não.
 func CalcularOperacao(num1, num2 float64, operador string) (models.OperationResponse, bool) {
+
+	// TODO: Refatorar a função para retornar um erro e não um bool.
+
 	switch operador {
 	case "+":
 		resultado = num1 + num2

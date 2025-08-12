@@ -33,6 +33,9 @@ func Modulo(c *gin.Context) {
 	HandleOperation(c, "%")
 }
 
+func Operacoes(c *gin.Context) {
+	// TODO: Função para listar todas as operações já feitas na execução da API.
+}
 
 // HandleOperation centraliza o tratamento da requisição e resposta HTTP.
 // Faz o bind dos dados, chama o controller e retorna no JSON apropriado.
@@ -47,10 +50,11 @@ func HandleOperation(c *gin.Context, operador string) {
 		return
 	}
 
-	resp, erro := controllers.CalcularOperacao(req.Num1, req.Num2, operador)
-	if erro {
+	resp, err := controllers.CalcularOperacao(req.Num1, req.Num2, operador)
+	if err {
 		c.JSON(http.StatusBadRequest, resp)
-	} else {
-		c.JSON(http.StatusOK, resp)
+		return
 	}
+	
+	c.JSON(http.StatusOK, resp)
 }

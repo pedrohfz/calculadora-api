@@ -14,5 +14,5 @@ func InitRoutes(r *gin.RouterGroup) {
 	r.POST("/multiplicacao", handlers.Multiplicar)
 	r.POST("/divisao", handlers.Dividir)
 	r.POST("/modulo", handlers.Modulo)
-	r.GET("/operacoes", handlers.Operations)
+	r.GET("/operacoes", handlers.Operacoes)
 }
