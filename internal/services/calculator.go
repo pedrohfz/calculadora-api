@@ -1,22 +1,20 @@
-package controllers
+package services
 
 import (
 	"calculadora-api/internal/models"
+	"errors"
 	"fmt"
 	"math"
 )
 
-var (
-	resultado float64
-	mensagem  string
-	erro      bool
-)
-
 // CalcularOperacao executa a lógica da operação matemática com base no operador fornecido.
 // Retorna uma OperationResponse contendo o resultado ou mensagem de erro, além de um bool indicando falha ou não.
-func CalcularOperacao(num1, num2 float64, operador string) (models.OperationResponse, bool) {
+func CalcularOperacao(num1, num2 float64, operador string) (models.OperationResponse, error) {
 
-	// TODO: Refatorar a função para retornar um erro e não um bool.
+	// TODO: Armazenar todos os resultados numa slice e listar ao chamar a rota GET /operacoes.
+
+	var resultado float64
+	var mensagem string
 
 	switch operador {
 	case "+":
@@ -30,28 +28,19 @@ func CalcularOperacao(num1, num2 float64, operador string) (models.OperationResp
 		mensagem = fmt.Sprintf("A multiplicação de %.2f e %.2f é %.2f", num1, num2, resultado)
 	case "/":
 		if num2 == 0 {
-			mensagem = "Não é possível dividir um número por zero."
-			erro = true
-		} else {
-			resultado = num1 / num2
-			mensagem = fmt.Sprintf("A divisão de %.2f e %.2f é %.2f", num1, num2, resultado)
+			return models.OperationResponse{}, errors.New("Não é possível dividir um número por zero!")
 		}
+		resultado = num1 / num2
+		mensagem = fmt.Sprintf("A divisão de %.2f e %.2f é %.2f", num1, num2, resultado)
 	case "%":
 		if num2 == 0 {
-			mensagem = "Não é possível calcular o módulo com divisor zero."
-			erro = true
-		} else {
-			resultado = math.Mod(num1, num2)
-			mensagem = fmt.Sprintf("O módulo de %.2f e %.2f é %.2f", num1, num2, resultado)
+			return models.OperationResponse{}, errors.New("Não é possível dividir um número por zero!")
 		}
+		resultado = math.Mod(num1, num2)
+		mensagem = fmt.Sprintf("O módulo de %.2f e %.2f é %.2f", num1, num2, resultado)
 	default:
-		mensagem = "Operação desconhecida."
-		erro = true
+		return models.OperationResponse{}, errors.New("Operação inválida!")
 	}
 
-	return models.OperationResponse{
-		Resultado: resultado,
-		Mensagem:  mensagem,
-		Erro:      erro,
-	}, erro
+	return models.OperationResponse{Resultado: resultado, Mensagem: mensagem}, nil
 }
