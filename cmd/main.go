@@ -1,7 +1,7 @@
 package main
 
 import (
-	"calculadora-api/routes"
+	"calculadora-api/internal/controllers/routes"
 	"log"
 
 	"github.com/gin-gonic/gin"
@@ -10,10 +10,10 @@ import (
 // A função 'main' é o ponto de entrada da aplicação
 // Aqui iniciamos o servidor HTTP e registramos as rotas disponíveis.
 func main() {
-	router := gin.Default()
-	routes.InitRoutes(&router.RouterGroup)
+	server := gin.Default()
+	routes.InitRoutes(&server.RouterGroup)
 
-	if err := router.Run(":5050"); err != nil {
+	if err := server.Run(":5050"); err != nil {
 		log.Fatal(err)
 	}
 }

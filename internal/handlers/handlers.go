@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"calculadora-api/controllers"
-	"calculadora-api/models"
+	"calculadora-api/internal/controllers"
+	"calculadora-api/internal/models"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

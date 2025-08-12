@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"calculadora-api/models"
+	"calculadora-api/internal/models"
 	"fmt"
 	"math"
 )

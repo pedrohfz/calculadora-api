@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"calculadora-api/handlers"
+	"calculadora-api/internal/handlers"
 
 	"github.com/gin-gonic/gin"
 )
