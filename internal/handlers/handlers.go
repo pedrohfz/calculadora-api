@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"calculadora-api/internal/controllers"
+	"calculadora-api/internal/services"
 	"calculadora-api/internal/models"
 	"net/http"
 
@@ -32,6 +32,7 @@ func Dividir(c *gin.Context) {
 func Modulo(c *gin.Context) {
 	HandleOperation(c, "%")
 }
+
 
 // HandleOperation centraliza o tratamento da requisição e resposta HTTP.
 // Faz o bind dos dados, chama o controller e retorna no JSON apropriado.

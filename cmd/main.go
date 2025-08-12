@@ -1,7 +1,7 @@
 package main
 
 import (
-	"calculadora-api/internal/controllers/routes"
+	"calculadora-api/internal/routes"
 	"log"
 
 	"github.com/gin-gonic/gin"
