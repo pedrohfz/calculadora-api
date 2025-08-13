@@ -22,7 +22,9 @@ func HandleMathOperation(c *gin.Context, operador string) {
 
 	resp, err := services.CalcularOperacao(req.Num1, req.Num2, operador)
 	if err != nil {
-		c.JSON(http.StatusBadRequest, resp)
+		c.JSON(http.StatusBadRequest, models.OperationResponse{
+			Mensagem: err.Error(),
+		})
 		return
 	}
 
